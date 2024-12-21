@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Page</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --background-color: #f8f5ff;
+            --icon-background: #e6dbff;
+            --icon-hover: #d4c4ff;
+            --text-color: #5c4b8b;
+            --font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            background-image: url('bg.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            font-family: var(--font-family);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            padding-top: 50px;
+        }
+
+        .profile img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid var(--text-color);
+            margin-bottom: 15px;
+        }
+
+        .header {
+            font-size: 1.5em;
+            color: var(--text-color);
+            margin-bottom: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background-color: var(--icon-background);
+            color: var(--text-color);
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.2s;
+            font-size: 1.5em;
+        }
+
+        .social-icon:hover {
+            background-color: var(--icon-hover);
+            transform: scale(1.1);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 100px;
+            font-size: 0.9em;
+            color: var(--text-color);
+            opacity: 0.7;
+        }
+
+        .button {
+            text-decoration: none;
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            border-radius: 12px;
+            background-color: var(--icon-background);
+            color: var(--text-color);
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .button:hover {
+            background-color: var(--icon-hover);
+            transform: scale(1.05);
+        }
+
+        /* Positioning the sound button in the corner */
+        .sound-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 8px 15px;
+            background-color: var(--icon-background);
+            color: var(--text-color);
+            border-radius: 8px;
+            border: none;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .sound-button:hover {
+            background-color: var(--icon-hover);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Add audio elements for welcoming sound and click sound -->
+    <audio id="welcome-sound" src="welcome-sound.mp3" preload="auto"></audio>
+    <audio id="click-sound" src="click-sound.mp3" preload="auto"></audio>
+    
+    <script>
+        // Function to play the welcome sound when the page loads
+        window.onload = function() {
+            document.getElementById("welcome-sound").play();
+        }
+
+        // Function to play the click sound when any button is clicked
+        function playClickSound() {
+            document.getElementById("click-sound").play();
+        }
+
+        // Add event listeners for all buttons to play click sound
+        document.querySelectorAll('.button, .social-icon').forEach(button => {
+            button.addEventListener('click', playClickSound);
+        });
+    </script>
+
+    <div class="profile">
+        <img src="garry-pfp.jpg" alt="Profile Picture">
+    </div>
+    <div class="header">Welcome to My Link Page</div>
+
+    <div class="social-icons">
+        <a class="social-icon" href="https://www.instagram.com" target="_blank" title="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a class="social-icon" href="https://twitter.com" target="_blank" title="Twitter">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a class="social-icon" href="https://www.youtube.com" target="_blank" title="YouTube">
+            <i class="fab fa-youtube"></i>
+        </a>
+        <a class="social-icon" href="https://www.reddit.com" target="_blank" title="Reddit">
+            <i class="fab fa-reddit"></i>
+        </a>
+        <a class="social-icon" href="https://discord.com" target="_blank" title="Discord">
+            <i class="fab fa-discord"></i>
+        </a>
+    </div>
+    <a class="button" href="Request a Commission.html" target="_blank" title="Commissions">Request a Commission</a>
+    <a class="button" href="Request a Commission.html" target="_blank" title="Commissions">Free Stickers</a>
+    <div class="footer">© 2024 Gurwinder Singh . All rights reserved.</div>
+
+    <!-- Small sound button in the bottom corner -->
+    <button class="sound-button" onclick="document.getElementById('welcome-sound').play()">play</button>
+</body>
+
+</html>
